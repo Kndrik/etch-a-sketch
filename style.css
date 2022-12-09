@@ -1,13 +1,15 @@
 body {
     display: flex;
     justify-content: center;
+    background-color: rgb(238, 238, 238);
+    margin: 0;
 }
 
 .content {
-    background-color: rgb(250, 227, 152);
+    background-color: white;
     height: 100vh;
     width: 600px;
-    padding: 50px;
+    padding: 50px 100px;
 }
 
 .gridContainer {
@@ -17,6 +19,7 @@ body {
     aspect-ratio: 1 / 1;
     border:2px solid black;
     border-radius: 3px;
+    box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.288); 
 }
 
 .pixelLine {
@@ -29,4 +32,20 @@ body {
     background-color: white;
     border: 1px solid black;
     margin: -1px;
+}
+
+.hover {
+    background-color: black;
+}
+
+.newGridButton {
+    height: 30px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
