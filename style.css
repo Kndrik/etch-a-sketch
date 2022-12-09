@@ -20,6 +20,7 @@ body {
     border:2px solid black;
     border-radius: 3px;
     box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.288); 
+    margin: 30px 0px;
 }
 
 .pixelLine {
@@ -38,14 +39,26 @@ body {
     background-color: black;
 }
 
-.newGridButton {
+button {
     height: 30px;
-    margin: 20px 0;
+}
+ 
+.newGridButton {
+    margin: 0px 0;
     text-align: center;
+}
+
+.title {
+    margin: 0px;
 }
 
 .top {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.toolsContainer {
+    display: flex;
+    justify-content: space-between;
 }

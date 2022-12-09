@@ -1,3 +1,5 @@
+let pixels = new Array();
+
 createGrid(16, 16);
 
 function createGrid(size) {
@@ -17,6 +19,7 @@ function createGrid(size) {
             })
 
             newDiv.appendChild(newPixel);
+            pixels.push(newDiv);
         }
     }
 }
@@ -33,4 +36,8 @@ function pressNewGrid() {
     lines.forEach(line => line.remove());
 
     createGrid(desiredSize);
+}
+
+function clearGrid() {
+    // Turn all pixels white;
 }
