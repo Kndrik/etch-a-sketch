@@ -1,4 +1,5 @@
 let pixels = new Array();
+let selectedTool = "pen";
 
 createGrid(16, 16);
 
@@ -11,15 +12,23 @@ function createGrid(size) {
         for (let j = 0; j < size; j++) {
             const newPixel = document.createElement('div');
             newPixel.classList.add('pixel');
+            newPixel.setAttribute('draggable', 'false'); 
             newPixel.addEventListener("mouseenter", function(e) {
-                this.classList.toggle('hover');
+                if (e.buttons == 1) {
+                    affectPixel(e);
+                }
+                if (selectedTool === "pen") {
+                    this.classList.toggle('hover');
+                }
             })
             newPixel.addEventListener("mouseleave", function(e) {
-                this.classList.toggle('hover');
+                if (selectedTool === "pen") {
+                    this.classList.toggle('hover');
+                }
             })
-
+            newPixel.addEventListener("mousedown", (e) => affectPixel(e));
             newDiv.appendChild(newPixel);
-            pixels.push(newDiv);
+            pixels.push(newPixel);
         }
     }
 }
@@ -39,5 +48,26 @@ function pressNewGrid() {
 }
 
 function clearGrid() {
-    // Turn all pixels white;
+    pixels.forEach(pixel => pixel.style.backgroundColor = null);
+}
+
+function selectPen() {
+    selectedTool = "pen";
+}
+
+function selectEraser() {
+    selectedTool = "eraser";
+}
+
+function affectPixel(e) {
+    console.log("affecting");
+    switch (selectedTool) {
+        case "pen":
+            e.target.style.backgroundColor = 'black';
+        break;
+
+        case "eraser":
+            e.target.style.backgroundColor = null;
+        break;
+    }
 }
